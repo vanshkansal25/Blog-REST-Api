@@ -1,7 +1,7 @@
 import mongoose,{Schema} from "mongoose";
 const userSchema = new Schema({
     username:{
-         type: String,
+        type: String,
         required : true,
         unique : true,
         lowercase : true,
@@ -29,6 +29,10 @@ const userSchema = new Schema({
     refreshToken:{
         type : String
     },
+    bookMark:[{
+        type:Schema.Types.ObjectId,
+        ref: "User"
+    }],
     role: {
     type: String,
     enum: ["reader", "writer", "editor", "admin"],
